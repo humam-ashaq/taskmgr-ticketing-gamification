@@ -11,7 +11,7 @@ type Project struct {
 	Name        string         `gorm:"size:150;not null" json:"name"`
 	Slug        string         `gorm:"size:150;unique;not null" json:"slug"`
 	Description string         `gorm:"type:text" json:"description"`
-	CreatedBy   uint           `json:"created_by"` // Owner ID
+	CreatedBy   uint           `json:"created_by"`
 	CreatedAt   time.Time      `json:"created_at"`
 	UpdatedAt   time.Time      `json:"updated_at"`
 	DeletedAt   gorm.DeletedAt `gorm:"index" json:"-"`

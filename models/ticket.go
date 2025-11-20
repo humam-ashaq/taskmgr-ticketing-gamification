@@ -11,9 +11,9 @@ type Ticket struct {
 	ProjectID     uint       `json:"project_id"`
 	Title         string     `gorm:"size:255;not null" json:"title"`
 	Description   string     `gorm:"type:text" json:"description"`
-	Type          string     `gorm:"size:20;default:'task';not null" json:"type"`       // task, bug, feature
-	Priority      string     `gorm:"size:20;default:'medium';not null" json:"priority"` // low, medium, high, urgent
-	Status        string     `gorm:"size:30;default:'todo';not null" json:"status"`     // todo, in_progress, review, done
+	Type          string     `gorm:"size:20;default:'task';not null" json:"type"`
+	Priority      string     `gorm:"size:20;default:'medium';not null" json:"priority"`
+	Status        string     `gorm:"size:30;default:'todo';not null" json:"status"`
 	EstimateHours int        `json:"estimate_hours"`
 	DueDate       *time.Time `json:"due_date"`
 

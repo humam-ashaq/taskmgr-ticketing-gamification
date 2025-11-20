@@ -21,7 +21,10 @@ func Setup(app *fiber.App) {
 
 	api.Post("/projects", controllers.CreateProject)
 	api.Get("/projects", controllers.GetMyProjects)
+	api.Get("/projects/:id", controllers.GetProjectDetail)
 
-	api.Get("/task", controllers.GetTickets)
-	api.Post("/task", controllers.CreateTicket)
+	api.Get("/tickets", controllers.GetTickets)
+	api.Post("/tickets", controllers.CreateTicket)
+	api.Put("/tickets/:id", controllers.UpdateTicket)
+
 }

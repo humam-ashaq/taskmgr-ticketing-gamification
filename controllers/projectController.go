@@ -57,3 +57,17 @@ func GetMyProjects(c *fiber.Ctx) error {
 
 	return c.JSON(projects)
 }
+
+func GetProjectDetail(c *fiber.Ctx) error {
+	projectID := c.Params("id")
+	var project models.Project
+
+	if err := database.DB.
+		Preload("Owner").
+		Preload("Members.User").
+		First(&project, projectID).Error; err != nil {
+		return c.Status(404).JSON(fiber.Map{"error": "Project tidak ditemukan"})
+	}
+
+	return c.JSON(project)
+}
